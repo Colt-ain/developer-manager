@@ -1,0 +1,10 @@
+{
+	"name": "developer-manager",
+	"dependencies": {
+		"semantic-ui": "~2.2.14",
+		"font-awesome": "4.6.3"
+	},
+	"devDependencies": {
+		"jquery-mockjax": "^2.2.1"
+	}
+}

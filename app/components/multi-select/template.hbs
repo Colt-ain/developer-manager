@@ -1,0 +1,31 @@
+{{log this.options}}
+<div class="multi-select">
+	<div class="ui input" >
+		<div class="label">{{label}}</div>
+		<div class="selected" {{action 'toggleDropdown' bubbles=false}}>
+			{{#if this.isMultiple}}
+				{{#each this.selected as |selectedItem|}}
+						<div class="ui label">
+							{{selectedItem}}
+							<span {{action 'removeFromSelected' selectedItem bubbles=false}} class="close">x</span>
+						</div>
+				{{/each}}
+			{{else}}
+				{{#if this.selected}}
+					<div class="ui label">
+						{{this.selected}}
+						<span {{action 'removeFromSelected' selectedItem bubbles=false}} class="close">x</span>
+					</div>
+				{{/if}}
+			{{/if}}
+		</div>
+		{{#if this.isOpen}}
+			<ul class="dropdown">
+				{{#each this.options as |option|}}
+					<li {{action 'onSelect' option bubbles=false}}>{{option}}</li>
+				{{/each}}
+			</ul>
+
+		{{/if}}
+	</div>
+</div>

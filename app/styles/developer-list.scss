@@ -1,0 +1,50 @@
+body {
+	background: #f9f9fc;
+}
+
+h2 {
+	color: lightslategray;
+}
+
+.card {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	background: white;
+	margin-bottom: 20px;
+
+	&.developer {
+		padding: 20px;
+	}
+}
+
+.column {
+	display: flex;
+	align-items: center;
+}
+
+.table-header {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	padding: 20px;
+	color: lightslategray;
+}
+
+.actions.column .ui.basic.grey.buttons .button, .ui.basic.grey.button {
+	border: none;
+	box-shadow: none !important;
+
+	&:hover, &:active, &:hover:active {
+		box-shadow: none !important;
+		color: black !important;
+		border: none !important;
+	}
+}
+
+.actions.column .ui.basic.grey.buttons .button, .ui.basic.grey.button, .ui.basic.red.button {
+	border-radius: 18px !important;
+}
+
+.ui.basic.label {
+	font-weight: 400 !important;
+	padding: 4px;
+}

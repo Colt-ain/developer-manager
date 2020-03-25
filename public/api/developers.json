@@ -1,0 +1,32 @@
+{
+	"data": [
+		{
+			"id": "123421352",
+			"firstName": "James",
+			"lastName": "Hatfield",
+			"role": "FE-developer",
+			"frameworks": ["React", "Meteor"]
+		},
+		{
+			"id": "983420924",
+			"firstName": "Eric",
+			"lastName": "Clapton",
+			"role": "BE-developer",
+			"frameworks": ["Angular", "React"]
+		},
+		{
+			"id": "720575310",
+			"firstName": "Mike",
+			"lastName": "Jagger",
+			"role": "FulStack-developer",
+			"frameworks": ["Express", "Ember"]
+		},
+		{
+			"id": "019384758",
+			"firstName": "Mik",
+			"lastName": "Fanning",
+			"role": "FE-developer",
+			"frameworks": ["Ember", "Electron"]
+		}
+	]
+}

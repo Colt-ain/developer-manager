@@ -1,1 +1,27 @@
+<button class="hire" {{action "gotoNew"}}>Hire</button>
 <h2>Developer List goes here!!!</h2>
+<div class="table-header">
+		<div class="first-name column">First Name</div>
+		<div class="last-name column">Last Name</div>
+		<div class="role column">Role</div>
+		<div class="framework column">Frameworks</div>
+</div>
+
+{{#each this.model.developers as |developer|}}
+		<div class="developer card">
+				<div class="first-name column">{{developer.firstName}}</div>
+				<div class="last-name column">{{developer.lastName}}</div>
+				<div class="role column">
+						<span class="ui basic label">{{developer.role}}</span>
+				</div>
+				<div class="framework column">
+						{{#each developer.frameworks as |framework|}}
+								<span class="ui basic label">{{framework}}</span>
+						{{/each}}
+				</div>
+				<div class="actions column">
+						<button class="ui grey basic button">Edit</button>
+						<button {{action "fireDeveloper" developer.id }} class="ui red basic button">Fire</button>
+				</div>
+		</div>
+{{/each}}

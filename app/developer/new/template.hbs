@@ -1,1 +1,33 @@
-<h3>New Developer Route</h3>
+<h3>Create new developer</h3>
+
+<button {{action 'goToBack'}} class="back">Back to developers</button>
+<form>
+	<div class="ui input">
+		<label for="firstName">FirstName: </label>
+		{{input id="firstName" class="ui input fluid" value=this.model.firstName action=(mut this.model.firstName)}}
+	</div>
+	<div class="ui input">
+		<label for="lastName">LastName</label>
+		{{input id="lastName" className="ui" value=this.model.lastName action=(mut this.model.lastName) }}
+	</div>
+	<div class="dropdown-field">
+		{{multi-select
+				label='Role'
+				isMultiple=false
+				items=this.roles
+				selected=this.model.role
+		}}
+	</div>
+
+	<div class="dropdown-field">
+		{{multi-select
+				label='Frameworks'
+				isMultiple=true
+				items=this.frameworks
+				selected=this.model.frameworks
+		}}
+	</div>
+
+	<br>
+	<button class="ui primary button" {{action "saveDeveloper"}}>Save</button>
+</form>
