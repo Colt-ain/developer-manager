@@ -9,9 +9,8 @@ export default Component.extend({
 	selected: null,
 	items: null,
 	label: null,
+	placeholder: null,
 	removeWindowEvent: computed('isOpen', function() {
-		const isOpen = this.get('isOpen');
-
 		window.removeEventListener('click', this._onWindowClick);
 	}),
 	onClickOutsideHandler(e) {

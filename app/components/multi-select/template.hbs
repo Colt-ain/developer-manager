@@ -3,18 +3,24 @@
 		<div class="label">{{label}}</div>
 		<div class="selected" {{action 'toggleDropdown' bubbles=false}}>
 			{{#if this.isMultiple}}
-				{{#each this.selected as |selectedItem|}}
+				{{#if this.selected}}
+					{{#each this.selected as |selectedItem|}}
 						<div class="ui label">
 							{{selectedItem}}
 							<span {{action 'removeFromSelected' selectedItem bubbles=false}} class="close">x</span>
 						</div>
-				{{/each}}
+					{{/each}}
+				{{else}}
+					<span class="placeholder">{{this.placeholder}}</span>
+				{{/if}}
 			{{else}}
 				{{#if this.selected}}
 					<div class="ui label">
 						{{this.selected}}
 						<span {{action 'removeFromSelected' selectedItem bubbles=false}} class="close">x</span>
 					</div>
+				{{else}}
+					<span class="placeholder">{{this.placeholder}}</span>
 				{{/if}}
 			{{/if}}
 		</div>
