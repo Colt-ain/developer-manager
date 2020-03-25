@@ -15,12 +15,16 @@ li {
 	}
 }
 
-.actions {
+.actions.header {
 	width: 100%;
-	display: block;
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: flex-end;
 
-	.ui.green.button {
-		margin-right: 60px;
+	.developer-filter {
+		width: 400px;
+		float: right;
+		margin-top: 30px;
 	}
 
 	&:after {

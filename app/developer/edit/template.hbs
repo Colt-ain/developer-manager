@@ -1,6 +1,6 @@
 {{#link-to 'developer-list'}}Back to developers{{/link-to}}
 <h3>Edit developer</h3>
-<form>
+<form class="edit-developer">
 	<div class="ui input">
 		<label for="firstName">FirstName: </label>
 		{{input id="firstName" class="ui input fluid" value=this.model.firstName action=(mut this.model.firstName)}}
@@ -28,5 +28,6 @@
 	</div>
 
 	<br>
-	<button class="ui primary button" {{action "saveDeveloper"}}>Save</button>
+	<button class="ui green basic button save" {{action "saveDeveloper"}}>Save</button>
+	<button {{action "fireDeveloper" this.model.id}} class="ui red basic button">Fire</button>
 </form>

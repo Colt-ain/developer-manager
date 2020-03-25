@@ -1,5 +1,6 @@
 import Route from '@ember/routing/route';
 import Ember from 'ember';
+import { filterBy } from '@ember/object/computed';
 
 export default Route.extend({
 	store: Ember.inject.service('store'),
@@ -16,7 +17,7 @@ export default Route.extend({
 		},
 		async fireDeveloper(id) {
 			const developer = await this.store.peekRecord('developer', id);
-			const response = await developer.destroyRecord();
+			await developer.destroyRecord();
 		},
 		editDeveloper(id) {
 			this.transitionTo(`/developer/edit/${id}`);

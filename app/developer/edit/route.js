@@ -12,6 +12,12 @@ export default Route.extend({
 		},
 		goToBack() {
 			this.transitionTo('/developer-list');
-		}
+		},
+		async fireDeveloper(id) {
+			const developer = await this.store.peekRecord('developer', id);
+			await developer.destroyRecord();
+
+			this.transitionTo('developer-list');
+		},
 	}
 });

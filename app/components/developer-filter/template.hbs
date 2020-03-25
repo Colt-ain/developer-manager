@@ -1,3 +1,14 @@
-<div class="filter">
-	{{ui-dropdown }}
+<div class="developer-filter">
+	{{multi-select
+			placeholder='Filter by role'
+			isMultiple=false
+			items=this.rolesItems
+			selected=this.role
+	}}
+	{{multi-select
+			placeholder='Filter by framework'
+			isMultiple=true
+			items=this.frameworksItems
+			selected=this.frameworks
+	}}
 </div>

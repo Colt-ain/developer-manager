@@ -9,5 +9,6 @@ export default Model.extend({
 	firstName: attr('string'),
 	lastName: attr('string'),
 	role: attr('string'),
-	frameworks: attr()
+	frameworks: attr(),
+	avatar: attr('string')
 });

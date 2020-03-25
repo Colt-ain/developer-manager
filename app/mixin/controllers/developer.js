@@ -14,6 +14,6 @@ export default Ember.Mixin.create({
 		},
 		selectRole(role) {
 			this.set('model.role', role);
-		}
+		},
 	}
 });

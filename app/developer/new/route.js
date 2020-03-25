@@ -1,16 +1,20 @@
 import Ember from 'ember';
 import Route from '@ember/routing/route';
+import getAvatar from '../../helpers/getAvatar';
 
 const { RSVP } = Ember;
 
 export default Route.extend({
 	model() {
+		const avatar = getAvatar();
+
 		return RSVP.hash({
 			id: Math.floor(Math.random() * 1000).toString(),
 			firstName: '',
 			lastName: '',
 			role: '',
 			frameworks: [],
+			avatar,
 		});
 	},
 	actions: {

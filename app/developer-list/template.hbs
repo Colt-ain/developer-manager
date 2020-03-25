@@ -1,20 +1,33 @@
-<div class="actions">
-	<button class="ui green basic button float right" {{action "gotoNew"}}>Hire</button>
+<button class="ui green basic button float right" {{action "gotoNew"}}>Hire</button>
+<div class="actions header">
+	{{developer-filter
+			rolesItems=this.roles
+			frameworksItems=this.frameworks
+			role=this.selectedRole
+			frameworks=this.selectedFrameworks
+	}}
 </div>
 
 <div class="table-header">
+	<div class="first-name column"></div>
 		<div class="first-name column">First Name</div>
 		<div class="last-name column">Last Name</div>
 		<div class="role column">Role</div>
 		<div class="framework column">Frameworks</div>
 </div>
 
-{{#each this.model.developers as |developer|}}
+{{#each this.developers as |developer|}}
 		<div class="developer card">
-				<div class="first-name column">{{developer.firstName}}</div>
+				<div class="avatar column">
+					<i class="em {{developer.avatar}}" aria-role="presentation" aria-label="DOG FACE"></i>
+				</div>
+				<div class="first-name column">
+					{{developer.firstName}}</div>
 				<div class="last-name column">{{developer.lastName}}</div>
 				<div class="role column">
+					{{#if developer.role}}
 						<span class="ui basic label">{{developer.role}}</span>
+					{{/if}}
 				</div>
 				<div class="framework column">
 						{{#each developer.frameworks as |framework|}}
@@ -23,7 +36,7 @@
 				</div>
 				<div class="actions column">
 						<button {{action "editDeveloper" developer.id}} class="ui grey basic button">Edit</button>
-						<button {{action "fireDeveloper" developer.id }} class="ui red basic button">Fire</button>
+						<button {{action "fireDeveloper" developer.id}} class="ui red basic button">Fire</button>
 				</div>
 		</div>
 {{/each}}

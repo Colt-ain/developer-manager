@@ -12,9 +12,7 @@ export default Component.extend({
 	removeWindowEvent: computed('isOpen', function() {
 		const isOpen = this.get('isOpen');
 
-		if (isOpen) {
-			window.removeEventListener('click', this.onClickOutsideHandler.bind(this));
-		}
+		window.removeEventListener('click', this._onWindowClick);
 	}),
 	onClickOutsideHandler(e) {
 		e.stopPropagation();
@@ -26,10 +24,13 @@ export default Component.extend({
 		if (!this.get('options').length) return;
 
 		this.set('isOpen', false);
-		window.removeEventListener('click', this.onClickOutsideHandler.bind(this));
+		window.removeEventListener('click', this._onWindowClick);
+	},
+	didInsertElement() {
+		this._onWindowClick = this.onClickOutsideHandler.bind(this);
 	},
 	willDestroyElement() {
-		window.removeEventListener('click', this.onClickOutsideHandler);
+		window.removeEventListener('click', this._onWindowClick);
 	},
 	options: computed('items.@each', 'selected.@each', function() {
 		const items = this.get('items');
@@ -57,9 +58,9 @@ export default Component.extend({
 			const isMultiple = this.get('isMultiple');
 
 			if (isMultiple) {
-				if (selected.includes(item)) return selected;
+				if (selected && selected.includes(item)) return selected;
 
-				this.set('selected', [...selected, item])
+				this.set('selected', [...selected || [], item])
 			} else {
 				this.set('selected', [item])
 			}
@@ -68,10 +69,9 @@ export default Component.extend({
 			if (!this.get('options').length) return;
 
 			if (!this.get('isOpen')) {
-				window.addEventListener('click', this.onClickOutsideHandler.bind(this));
+				window.addEventListener('click', this._onWindowClick);
 			} else {
-				window.removeEventListener('click', this.onClickOutsideHandler.bind(this));
-
+				window.removeEventListener('click', this._onWindowClick);
 			}
 
 			this.set('isOpen', !this.get('isOpen'));
