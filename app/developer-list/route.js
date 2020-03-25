@@ -16,7 +16,10 @@ export default Route.extend({
 		},
 		async fireDeveloper(id) {
 			const developer = await this.store.peekRecord('developer', id);
-			const response = await developer.destroyRecord(); // => DELETE to /posts/2
+			const response = await developer.destroyRecord();
+		},
+		editDeveloper(id) {
+			this.transitionTo(`/developer/edit/${id}`);
 		}
 	}
 });

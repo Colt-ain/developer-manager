@@ -42,9 +42,15 @@ export default Component.extend({
 			const selected = this.get('selected');
 			const isMultiple = this.get('isMultiple');
 
+			if (!isMultiple) {
+				this.set('selected', []);
+
+				return;
+			}
+
 			const newSelected = selected.filter(selected => selected !== item);
 
-			this.set('selected', isMultiple ? newSelected : []);
+			this.set('selected', newSelected);
 		},
 		onSelect(item) {
 			const selected = this.get('selected');

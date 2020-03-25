@@ -2,8 +2,16 @@ body {
 	background: #f9f9fc;
 }
 
-h2 {
+h2, a {
 	color: lightslategray;
+}
+
+a {
+	text-decoration: underline;
+
+	&:hover, &:active {
+		color: black;
+	}
 }
 
 .card {
@@ -29,7 +37,8 @@ h2 {
 	color: lightslategray;
 }
 
-.actions.column .ui.basic.grey.buttons .button, .ui.basic.grey.button {
+.actions.column .ui.basic.grey.buttons .button,
+.ui.basic.grey.button {
 	border: none;
 	box-shadow: none !important;
 
@@ -40,8 +49,15 @@ h2 {
 	}
 }
 
-.actions.column .ui.basic.grey.buttons .button, .ui.basic.grey.button, .ui.basic.red.button {
+.actions.column .ui.basic.grey.buttons .button,
+.ui.basic.grey.button,
+.ui.basic.red.button,
+.ui.basic.green.button {
 	border-radius: 18px !important;
+}
+
+.ui.basic.green.button {
+	float: right;
 }
 
 .ui.basic.label {
