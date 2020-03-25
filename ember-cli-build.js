@@ -23,6 +23,11 @@ module.exports = function(defaults) {
 			packageNamePngSprite: 'emojione-png',
 			packageNameSvgSprite: 'emojione-svg',
 			shouldIncludeComponents: true,
+		},
+		'autoImport': {
+			alias: {
+				'faker': 'build/build/faker'
+			}
 		}
 	});
 
